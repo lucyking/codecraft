@@ -24,4 +24,4 @@ SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall -std=c++14")
 aux_source_directory(. DIR_SRCS)
 
 # 指定生成目标
-add_executable(cdn ${DIR_SRCS})
+add_executable(cdn ${DIR_SRCS} print.cpp type.h print.h)
