@@ -5,5 +5,6 @@
 #ifndef CDN_PRINT_H
 #define CDN_PRINT_H
 
-void printMap(EdgeInfoDict &m);
+void printEdgeMap(EdgeInfoDict &m);
+void printClientMap(ClientInfoDict &m);
 #endif //CDN_PRINT_H

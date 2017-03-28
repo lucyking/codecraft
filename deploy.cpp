@@ -18,39 +18,31 @@ int server_price = 0;
 //你要完成的功能总入口
 void deploy_server(char *topo[MAX_EDGE_NUM], int line_num, char *filename) {
 
-
     EdgeInfoDict edgeInfoDict;
+    ClientInfoDict clientInfoDict;
+
     sscanf(topo[0], "%d %d %d\n", &n_node, &n_edge, &n_client);
     printf("Node:%d Edge:%d Client:%d\n", n_node, n_edge, n_client);
-
     sscanf(topo[2], "%d\n", &server_price);
     printf("Sever Price: %d\n", server_price);
 
-
-    int data[4];
-    // get EdgeInfo
+    // get EdgeInfo: <from,to,band,cost>
     // |size| = n_edge
+    int data[4];
     for (int k = 4; k < n_edge + 4; k++) {
-        printf("<<<%s", topo[k]);
         sscanf(topo[k], "%d %d %d %d\n", data, data + 1, data + 2, data + 3);
-        printf(">>>%d %d %d %d\n\n", data[0], data[1], data[2], data[3]);
         edgeInfoDict[make_pair(data[0],data[1])]=make_pair(data[2],data[3]);
     }
-    cout<<"EdgeInfoDict:\n";
-    printMap(edgeInfoDict);
-
-    cout<<endl;
+    printEdgeMap(edgeInfoDict);
 
 
 
-    //get client data
+    //get ClientInfo: <clint,neighbour,need>
     for(int k= n_edge + 5; k < n_edge+5+n_client;k++){
-        printf("<<<%s", topo[k]);
         sscanf(topo[k], "%d %d %d\n", data, data + 1, data + 2);
-        printf(">>>%d %d %d\n\n", data[0], data[1], data[2]);
-
+        clientInfoDict[make_pair(data[0],data[1])]=data[2];
     }
-
+    printClientMap(clientInfoDict);
 
 
     // 需要输出的内容
