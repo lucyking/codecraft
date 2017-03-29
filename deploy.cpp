@@ -1,6 +1,7 @@
 #include "deploy.h"
 #include "type.h"
 #include "print.h"
+#include "analyse.h"
 #include <stdio.h>
 #include <vector>
 #include <map>
@@ -20,6 +21,7 @@ void deploy_server(char *topo[MAX_EDGE_NUM], int line_num, char *filename) {
 
     EdgeInfoDict edgeInfoDict;
     ClientInfoDict clientInfoDict;
+    NodeCapDict nodeCapDict;
 
     sscanf(topo[0], "%d %d %d\n", &n_node, &n_edge, &n_client);
     printf("Node:%d Edge:%d Client:%d\n", n_node, n_edge, n_client);
@@ -43,6 +45,12 @@ void deploy_server(char *topo[MAX_EDGE_NUM], int line_num, char *filename) {
         clientInfoDict[make_pair(data[0],data[1])]=data[2];
     }
     printClientMap(clientInfoDict);
+
+    sortEdgeInfoDict(edgeInfoDict);
+    nodeCapDict = sumNodeCap(edgeInfoDict);
+    printNodeCapMap(nodeCapDict);
+
+
 
 
     // 需要输出的内容

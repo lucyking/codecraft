@@ -7,4 +7,5 @@
 
 void printEdgeMap(EdgeInfoDict &m);
 void printClientMap(ClientInfoDict &m);
+void printNodeCapMap(NodeCapDict &m);
 #endif //CDN_PRINT_H

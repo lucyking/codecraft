@@ -5,7 +5,7 @@ using namespace std;
 
 void printEdgeMap(EdgeInfoDict &m){
     for(auto k = m.begin(); k != m.end(); k++){
-        printf("%d %d %d %d\n",
+        printf("|%d %d %d %d\n",
                k->first.first,k->first.second,
                k->second.first,k->second.second);
     }
@@ -14,10 +14,24 @@ void printEdgeMap(EdgeInfoDict &m){
 
 void printClientMap(ClientInfoDict &m){
     for(auto k = m.begin(); k != m.end(); k++) {
-        printf("%d %d %d\n",
+        printf("!%d %d %d\n",
                k->first.first, k->first.second,
                k->second);
     }
     cout<<endl;
+}
+
+void printNodeCapMap(NodeCapDict &m){
+    int i=0;
+    auto k=m.end();
+    k--;
+    for(;;k--){
+        std::cout<<i++<<endl;
+//        printf("sum:%d <node:%d sum:%d>\n",k->first,k->second.first,k->second.second);
+//        printf("node:%d sum:%d\n",k->second.first,k->second.second);
+        printf("sum:%d node:%d\n",k->first.first,k->first.second);
+        if(k==m.begin())
+            break;
+    }
 }
 
