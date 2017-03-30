@@ -6,5 +6,6 @@
 #include "type.h"
 void sortEdgeInfoDict(EdgeInfoDict &m);
 NodeCapDict sumNodeCap(EdgeInfoDict &m);
+NodeCapDict sumNodeCap2(EdgeInfoDict &m, int nodesize);
 
 #endif //CDN_ANALYSE_H

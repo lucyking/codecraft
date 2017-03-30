@@ -25,8 +25,11 @@ void printNodeCapMap(NodeCapDict &m){
     int i=0;
     auto k=m.end();
     k--;
+    cout<<"##############\n";
     for(;;k--){
-        std::cout<<i++<<endl;
+        i++;
+//        if (i>10) break;
+//        std::cout<<i++<<endl;
 //        printf("sum:%d <node:%d sum:%d>\n",k->first,k->second.first,k->second.second);
 //        printf("node:%d sum:%d\n",k->second.first,k->second.second);
         printf("sum:%d node:%d\n",k->first.first,k->first.second);

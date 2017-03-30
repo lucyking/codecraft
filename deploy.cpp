@@ -47,9 +47,13 @@ void deploy_server(char *topo[MAX_EDGE_NUM], int line_num, char *filename) {
     printClientMap(clientInfoDict);
 
     sortEdgeInfoDict(edgeInfoDict);
+    cout<<"##############\n";
+    printEdgeMap(edgeInfoDict);
     nodeCapDict = sumNodeCap(edgeInfoDict);
     printNodeCapMap(nodeCapDict);
 
+    nodeCapDict = sumNodeCap2(edgeInfoDict,n_node);
+    printNodeCapMap(nodeCapDict);
 
 
 
