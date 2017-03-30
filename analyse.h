@@ -7,5 +7,6 @@
 void sortEdgeInfoDict(EdgeInfoDict &m);
 NodeCapDict sumNodeCap(EdgeInfoDict &m);
 NodeCapDict sumNodeCap2(EdgeInfoDict &m, int nodesize);
+int sumClientCost(ClientInfoDict &m);
 
 #endif //CDN_ANALYSE_H

@@ -49,7 +49,6 @@ NodeCapDict sumNodeCap2(EdgeInfoDict &m, int nodesize) {
         re[k->first.second]+=k->second.first;
     }
 
-
     for(int i=0;i<nodesize;i++){
         rd[make_pair(re[i],i)]=i;
     }
@@ -57,5 +56,11 @@ NodeCapDict sumNodeCap2(EdgeInfoDict &m, int nodesize) {
     return rd;
 }
 
+int sumClientCost(ClientInfoDict &m){
+    int sum = 0;
+    for (auto k = m.begin();k!=m.end();k++)
+        sum += k->first.first;
+    return sum;
+}
 
 
