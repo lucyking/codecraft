@@ -11,9 +11,8 @@ using namespace std;
 
 int n_node = 0;
 int n_edge = 0;
-int n_client = 0,sum_cost=0;
+int n_client = 0, sum_cost = 0;
 int server_price = 0;
-
 
 
 //你要完成的功能总入口
@@ -33,32 +32,32 @@ void deploy_server(char *topo[MAX_EDGE_NUM], int line_num, char *filename) {
     int data[4];
     for (int k = 4; k < n_edge + 4; k++) {
         sscanf(topo[k], "%d %d %d %d\n", data, data + 1, data + 2, data + 3);
-        edgeInfoDict[make_pair(data[0],data[1])]=make_pair(data[2],data[3]);
+        edgeInfoDict[make_pair(data[0], data[1])] = make_pair(data[2], data[3]);
     }
     printEdgeMap(edgeInfoDict);
 
 
 
     //get ClientInfo: <clint,neighbour,need>
-    for(int k= n_edge + 5; k < n_edge+5+n_client;k++){
+    for (int k = n_edge + 5; k < n_edge + 5 + n_client; k++) {
         sscanf(topo[k], "%d %d %d\n", data, data + 1, data + 2);
-        clientInfoDict[make_pair(data[2],data[0])]=data[1]; // < <cost,#clint>, #neighbour >
+        clientInfoDict[make_pair(data[2], data[0])] = data[1]; // < <cost,#clint>, #neighbour >
     }
     printClientMap(clientInfoDict);
     sum_cost = sumClientCost(clientInfoDict);
 
     sortEdgeInfoDict(edgeInfoDict);
-    cout<<"##############\n";
+    cout << "##############\n";
 //    printEdgeMap(edgeInfoDict);
 //    nodeCapDict = sumNodeCap(edgeInfoDict);
 //    printNodeCapMap(nodeCapDict);
 
-    nodeCapDict = sumNodeCap2(edgeInfoDict,n_node);
+    nodeCapDict = sumNodeCap2(edgeInfoDict, n_node);
     printNodeCapMap(nodeCapDict);
 
-    cout<<"Want Cost in total:: "<< sum_cost<<endl;
+    cout << "Want Cost in total:: " << sum_cost << endl;
 
-    evulateNodeCap(nodeCapDict,sum_cost);
+    evulateNodeCap(nodeCapDict, sum_cost);
 
 
 

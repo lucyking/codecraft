@@ -9,3 +9,4 @@ out
 gen
 bin
 cmake-build-debug
+log

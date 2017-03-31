@@ -12,8 +12,7 @@ void sortEdgeInfoDict(EdgeInfoDict &m) {
             a = k->first.second;
             m[make_pair(a, b)] = make_pair(k->second.first, k->second.second);
             m.erase(k++);
-        }
-        else {
+        } else {
             k++;
         }
     }
@@ -25,8 +24,7 @@ NodeCapDict sumNodeCap(EdgeInfoDict &m) {
     for (auto k = m.begin(); k != m.end(); k++) {
         if (node == k->first.first) {
             sum += k->second.first;
-        }
-        else if (node != k->first.first) {
+        } else if (node != k->first.first) {
             re[make_pair(sum, node)] = node;
 
             node = k->first.first;  // init [node && sum]
@@ -40,25 +38,25 @@ NodeCapDict sumNodeCap(EdgeInfoDict &m) {
 NodeCapDict sumNodeCap2(EdgeInfoDict &m, int nodesize) {
     int re[nodesize];
     NodeCapDict rd;
-    for(int i=0;i<nodesize;i++){
-        re[i]=0;
+    for (int i = 0; i < nodesize; i++) {
+        re[i] = 0;
     }
 
-    for (auto k = m.begin();k!=m.end(); k++){
-        re[k->first.first]+=k->second.first;
-        re[k->first.second]+=k->second.first;
+    for (auto k = m.begin(); k != m.end(); k++) {
+        re[k->first.first] += k->second.first;
+        re[k->first.second] += k->second.first;
     }
 
-    for(int i=0;i<nodesize;i++){
-        rd[make_pair(re[i],i)]=i;
+    for (int i = 0; i < nodesize; i++) {
+        rd[make_pair(re[i], i)] = i;
     }
 
     return rd;
 }
 
-int sumClientCost(ClientInfoDict &m){
+int sumClientCost(ClientInfoDict &m) {
     int sum = 0;
-    for (auto k = m.begin();k!=m.end();k++)
+    for (auto k = m.begin(); k != m.end(); k++)
         sum += k->first.first;
     return sum;
 }

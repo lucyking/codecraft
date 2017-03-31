@@ -3,8 +3,7 @@
 #include "lib_time.h"
 #include "stdio.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     print_time("Begin");
     char *topo[MAX_EDGE_NUM];
     int line_num;
@@ -14,8 +13,7 @@ int main(int argc, char *argv[])
     line_num = read_file(topo, MAX_EDGE_NUM, topo_file);
 
     printf("line num is :%d \n", line_num);
-    if (line_num == 0)
-    {
+    if (line_num == 0) {
         printf("Please input valid topo file.\n");
         return -1;
     }
@@ -28,6 +26,6 @@ int main(int argc, char *argv[])
 
     print_time("End");
 
-	return 0;
+    return 0;
 }
 

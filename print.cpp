@@ -40,10 +40,10 @@ void printNodeCapMap(NodeCapDict &m) {
 }
 
 void evulateNodeCap(NodeCapDict &m, int sum_cost) {
-    int s = 0,i = 1;
+    int s = 0, i = 1;
     auto k = m.end();
     k--;
-    for (;; k--,i++) {
+    for (;; k--, i++) {
         s += k->first.first;
         printf("sum:%d node:%d \ttotal cap:%d\t#%d\n", k->first.first, k->first.second, s, i);
         if (s > sum_cost || k == m.begin())
