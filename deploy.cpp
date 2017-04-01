@@ -18,7 +18,7 @@ int server_price = 0;
 //你要完成的功能总入口
 void deploy_server(char *topo[MAX_EDGE_NUM], int line_num, char *filename) {
 
-    EdgeInfoDict edgeInfoDict;
+    EdgeInfoDict edgeInfoDict, fullMap;
     ClientInfoDict clientInfoDict;
     NodeCapDict nodeCapDict;
 
@@ -58,6 +58,10 @@ void deploy_server(char *topo[MAX_EDGE_NUM], int line_num, char *filename) {
     cout << "Want Cost in total:: " << sum_cost << endl;
 
     evulateNodeCap(nodeCapDict, sum_cost);
+
+    fullMap = genFullDict(n_node, server_price, edgeInfoDict, clientInfoDict);
+
+    printEdgeMap(fullMap);
 
 
 

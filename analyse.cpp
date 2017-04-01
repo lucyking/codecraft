@@ -61,4 +61,20 @@ int sumClientCost(ClientInfoDict &m) {
     return sum;
 }
 
+EdgeInfoDict genFullDict(int n_node, int server_price, EdgeInfoDict e, ClientInfoDict c) {
+    EdgeInfoDict re = e;
+    int super_start = n_node;
+    int super_end = n_node + 1;
+
+    //append super_end.
+    for (auto k = c.begin(); k != c.end(); k++) {
+        re[make_pair(k->second, super_end)] = make_pair(k->first.first, 0);
+    }                              // the cost form client's neighbour to super_end is ZERO.
+    //prefix super_start
+    for (auto k = 0; k != n_node; k++) {
+        re[make_pair(super_start, k)] = make_pair(INT32_MAX, server_price);
+    }                              // the SERVER's capability is infinity.
+
+    return re;
+}
 

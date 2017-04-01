@@ -14,4 +14,6 @@ NodeCapDict sumNodeCap2(EdgeInfoDict &m, int nodesize);
 
 int sumClientCost(ClientInfoDict &m);
 
+EdgeInfoDict genFullDict(int n_node, int server_price, EdgeInfoDict e, ClientInfoDict c);
+
 #endif //CDN_ANALYSE_H

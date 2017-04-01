@@ -5,6 +5,7 @@
 using namespace std;
 
 void printEdgeMap(EdgeInfoDict &m) {
+    cout << ">>>>>>EdgeInfoDict<<<<<<\n";
     for (auto k = m.begin(); k != m.end(); k++) {
         printf("|%d %d %d %d\n",
                k->first.first, k->first.second,
@@ -14,6 +15,7 @@ void printEdgeMap(EdgeInfoDict &m) {
 }
 
 void printClientMap(ClientInfoDict &m) {
+    printf("Cost Client Neighbour\n");
     for (auto k = m.begin(); k != m.end(); k++) {
         printf("!%d %d %d\n",
                k->first.first, k->first.second,
